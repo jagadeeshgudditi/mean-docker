@@ -8,18 +8,15 @@ pipeline {
          }
     }
     
-     stage('Build Image') {
+     stage('Build Image and Run Image') {
          steps {
-         sh ' docker build .'
-         }
-    } 
-      
-    stage('Run Image') {
-         
-         steps {
-         sh ' docker run -d -p 8050:8000 --name meanapp mean-docker_angular'
-         }
-    }
+          sh 'cd mean-docker'
+
+          sh 'docker-compose -f 'docker-compose.debug.yml' up'
+        
+            } 
+        }
+    
     stage('Testing'){
          steps {
              echo 'Testing..'
