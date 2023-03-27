@@ -8,9 +8,16 @@ pipeline {
          }
     }
     
-    stage('Run Image') {
+     stage('Build Image') {
          steps {
-         sh ' docker run -d -p 8050:8000 --name meanapp mean-docker_angular:latest'
+         sh ' docker build .'
+         }
+    } 
+      
+    stage('Run Image') {
+         
+         steps {
+         sh ' docker run -d -p 8050:8000 --name meanapp mean-docker_angular'
          }
     }
     stage('Testing'){
