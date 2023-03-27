@@ -10,7 +10,7 @@ pipeline {
     
     stage('Run Image') {
          steps {
-         sh 'sudo docker run -d -p 8050:8000 --name meanapp mean-docker_angular'
+         sh ' docker run -d -p 8050:8000 --name meanapp mean-docker_angular'
          }
     }
     stage('Testing'){
