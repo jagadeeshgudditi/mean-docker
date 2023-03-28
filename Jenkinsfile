@@ -17,7 +17,7 @@ pipeline {
      stage('Docker Build') {
         	agent any
        steps {
-      	  sh 'docker build -t meanapp:latest .'
+      	  sh 'docker-compose -f 'docker-compose.debug.yml' up'
       }
     }
     
