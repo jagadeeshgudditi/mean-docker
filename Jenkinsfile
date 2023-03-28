@@ -10,8 +10,7 @@ pipeline {
     
      stage('Build Image and Run Image') {
          steps {
-          sh 'cd mean-docker'
-
+          /*sh 'cd mean-docker'*/
           sh 'docker-compose -f 'docker-compose.debug.yml' up'
         
             } 
