@@ -17,6 +17,7 @@ pipeline {
      stage('Docker Build') {
         	agent any
        steps {
+         sh 'cd mean-docker'
       	  sh 'docker-compose up'
       }
     }
