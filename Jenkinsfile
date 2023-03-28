@@ -8,12 +8,18 @@ pipeline {
          }
     }
     
-     stage('Build Image and Run Image') {
-         steps {
+     /*stage('Build Image and Run Image') { */
+        /* steps { */
           /*sh 'cd mean-docker'*/
-             sh 'docker-compose -f 'docker-compose.debug.yml' up'
-         } 
-     }
+             */sh 'docker-compose -f 'docker-compose.debug.yml' up' */
+  /*       }*/ 
+     */}*/
+     stage('Docker Build') {
+        	agent any
+       steps {
+      	  sh 'docker build -t meanapp:latest .'
+      }
+    }
     
     stage('Testing'){
          steps {
